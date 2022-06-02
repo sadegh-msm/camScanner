@@ -38,7 +38,7 @@ def get_coef(a, b, n):
     return res
 
 
-def getPerspectiveTransform(pts1, pts2):
+def get_perspective_transform(pts1, pts2):
     A = []
     plen = len(pts1)
 
@@ -54,7 +54,7 @@ def getPerspectiveTransform(pts1, pts2):
     return res.reshape(3, -1).T
 
 
-def showWarpPerspective(dst):
+def show_warp_perspective(dst):
     width, height, _ = dst.shape
 
     # This part is for denoising the result matrix . You can use this if at first you have filled matrix with zeros
@@ -64,10 +64,10 @@ def showWarpPerspective(dst):
                 if i + 1 < width and j - 1 >= 0:
                     dst[i][j] = dst[i + 1][j - 1]
 
-    showImage(dst, title='Warp Perspective')
+    show_image(dst, title='Warp Perspective')
 
 
-def showImage(image, title, save_file=True):
+def show_image(image, title, save_file=True):
     final_ans = to_mtx(image)
     final_ans = final_ans.astype(np.uint8)
 
