@@ -18,9 +18,10 @@ def warpPerspective(img, transform_matrix, output_width, output_height):
             yy = array_x[1][0] / array_x[2][0]
 
             if xx < output_width and yy < output_height:
-                img2[int(xx)][int(yy)] = img[i][j]
+                if xx >= 0 and yy >= 0:
+                    img2[int(xx)][int(yy)] = img[i][j]
 
-    return img2
+    return img2.astype(np.uint8)
 
 
 def grayScaledFilter(img):
